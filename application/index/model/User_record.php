@@ -5,6 +5,7 @@
  * Date: 2018/9/17
  * Time: 16:42
  */
+namespace app\index\model;
 use think\Model;
 
 class User_record extends Model

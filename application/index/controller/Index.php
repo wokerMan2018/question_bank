@@ -84,27 +84,36 @@ class Index  extends Controller
      *******************************************/
     public function doSetQuestion()
     {
+        $strQuestion = '';
         $res = $this->doRandomChooseQuestion(10,0,0,0);
          foreach ($res as $key => $value) {
               foreach ($value as $kkey => $vvalue) {
-//                  $question = Question_bank::where('id',$vvalue['id'])->find();
-                  $question = Question_bank::get($vvalue['id'])->value('id');
-                  dump($question);
-                  dump('------------');
+                  $questions[] = $vvalue['id'];
+
+                  $question = Question_bank::where('id',$vvalue['id'])->find();
+//                  $question = Question_bank::get($vvalue['id']);
+//                  dump($question);
+//                  dump('------------');
 //                  echo $question;
 //                  echo '<br>';
               }
+              dump($questions);
+              $strQuestion .= implode(',',$questions);
+              dump($strQuestion);
+
          }
-//        User_record::create([
-//            'uid'=>1,
-//            'exam_name'=>'',
-//            'start_time'=>0,
-//            'end_time'=>0,
-//            'questions'=>'',
-//            'answers'=>'',
-//            'score'=>0,
-//            'is_submit'=>0
-//        ]);
+        dump($strQuestion);
+
+        User_record::create([
+            'uid'=>1,
+            'exam_name'=>'',
+            'start_time'=>0,
+            'end_time'=>0,
+            'questions'=> $strQuestion,
+            'answers'=>'',
+            'score'=>0,
+            'is_submit'=>0
+        ]);
 
 
 
