@@ -1,6 +1,6 @@
 ## 网球赛事服务data各字段说明
 
-### Json样例:
+### 普通用户data Json样例:
 ```
 {
     "code": 200,
@@ -36,4 +36,39 @@
 | user_description | 用户描述 |
 | create_time | 用户创建时间 | 
 | update_time | 该条数据更新时间 | 
+### 裁判员data Json样例
+```
+{
+    "status": 200,
+    "message": "返回裁判员信息",
+    "data": {
+        "id": 15,
+        "uid": 33,
+        "usergroupid": 2,
+        "status": 0,
+        "name": "张三",
+        "gender": "男",
+        "document_type": 1,
+        "document_number": "420281185507154618",
+        "phone_number": "15812345678",
+        "referee_description": "简介",
+        "referee_certificate": "/public/uploads/cert/20180921/04dd1d983500c2e03bc990e9c881ca21.png",
+        "create_time": "2018-09-21 15:26:58",
+        "update_time": "2018-09-21 15:26:58"
+    }
+}
+```
+|字段|含义|
+|-----------|---------|
+|id|裁判员id|
+|uid|裁判员关联的普通用户id|
+|usergroupid|用户组id|
+|status|审核是否通过|
+|name|裁判员姓名|
+|gender|性别|
+|document_type|证件类型|
+|document_number|证件号码|
+|phone_number|手机号码|
+|referee_description|裁判员个人简介|
+|referee_certificate|资质证书图片保存路径|
 
